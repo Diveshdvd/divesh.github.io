@@ -3,103 +3,753 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Divesh - Tech Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Divesh Shetty | IT Professional & Developer</title>
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
+        /* Base styles */
+        * {
             margin: 0;
             padding: 0;
-            background: linear-gradient(to right, #1c1c1c, #444);
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header styles */
+        header {
+            background: linear-gradient(135deg, #2b5876 0%, #4e4376 100%);
             color: white;
+            padding: 60px 20px;
             text-align: center;
         }
-        header {
-            padding: 50px 20px;
-            background: rgba(0, 0, 0, 0.8);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        
+        .profile-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        h1 {
-            font-size: 3em;
-            margin: 0;
+        
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            margin-bottom: 20px;
         }
-        nav ul {
+        
+        .header-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .header-content h2 {
+            font-size: 1.5rem;
+            font-weight: normal;
+            margin-bottom: 20px;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .nav-list {
+            display: flex;
             list-style: none;
-            padding: 0;
         }
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-        nav a {
-            color: #00e6e6;
+        
+        .nav-list li a {
+            display: block;
+            padding: 20px 25px;
             text-decoration: none;
-            font-size: 1.2em;
-            transition: 0.3s;
+            color: #333;
+            font-weight: bold;
+            transition: all 0.3s ease;
         }
-        nav a:hover {
-            color: #ffcc00;
+        
+        .nav-list li a:hover {
+            color: #4e4376;
         }
+        
+        /* Main content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
         section {
-            padding: 50px 20px;
+            margin-bottom: 60px;
         }
-        .project {
-            background: rgba(255, 255, 255, 0.1);
+        
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        section h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(135deg, #2b5876 0%, #4e4376 100%);
+            margin: 15px auto;
+        }
+        
+        /* About section */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .skills {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .skill-item {
+            margin-bottom: 15px;
+        }
+        
+        .skill-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .skill-bar {
+            height: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+        }
+        
+        .skill-level {
+            height: 100%;
+            border-radius: 5px;
+            background: linear-gradient(135deg, #2b5876 0%, #4e4376 100%);
+        }
+        
+        /* Projects section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .project-info {
             padding: 20px;
-            margin: 20px auto;
-            width: 60%;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
         }
+        
+        .project-info h3 {
+            margin-bottom: 10px;
+        }
+        
+        .project-tags {
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .tag {
+            background-color: #f0f0f0;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        /* Experience section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: linear-gradient(180deg, #2b5876 0%, #4e4376 100%);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid #4e4376;
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(odd)::after {
+            right: -12px;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -12px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-content h3 {
+            margin-bottom: 10px;
+        }
+        
+        .timeline-content .date {
+            color: #4e4376;
+            font-weight: bold;
+        }
+        
+        .timeline-content ul {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+        
+        .timeline-content li {
+            margin-bottom: 5px;
+        }
+        
+        /* Certificates section */
+        .certificates-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .certificate-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            width: 250px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .certificate-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .certificate-card i {
+            font-size: 2.5rem;
+            color: #4e4376;
+            margin-bottom: 15px;
+        }
+        
+        /* Contact section */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        button {
+            background: linear-gradient(135deg, #2b5876 0%, #4e4376 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .contact-item i {
+            width: 30px;
+            color: #4e4376;
+        }
+        
+        /* Social links */
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #2b5876 0%, #4e4376 100%);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        }
+        
+        /* Footer */
         footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
             padding: 20px;
-            background: rgba(0, 0, 0, 0.8);
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2rem;
+            }
+            
+            .header-content h2 {
+                font-size: 1.2rem;
+            }
+            
+            .nav-list li a {
+                padding: 15px;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 20px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Header Section -->
     <header>
-        <h1>Divesh Shetty</h1>
-        <p>🚀 Tech Enthusiast | Coder | Innovator</p>
+        <div class="profile-container">
+            <img src="/api/placeholder/400/400" alt="Divesh Shetty" class="profile-image">
+            <div class="header-content">
+                <h1>Divesh Shetty</h1>
+                <h2>IT Professional & Software Developer</h2>
+                <div class="social-links">
+                    <a href="https://github.com/Diveshdvd" aria-label="GitHub" target="_blank">G</a>
+                    <a href="https://linkedin.com/in/divesh-shetty-049949214/" aria-label="LinkedIn" target="_blank">L</a>
+                    <a href="mailto:diveshdvd28@gmail.com" aria-label="Email">E</a>
+                </div>
+            </div>
+        </div>
     </header>
-    
+
+    <!-- Navigation -->
     <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+        <div class="nav-container">
+            <ul class="nav-list">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
     </nav>
-    
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Passionate about technology, problem-solving, and creating meaningful digital solutions.</p>
-    </section>
-    
-    <section id="projects">
-        <h2>My Projects</h2>
-        <div class="project">
-            <h3>Project One</h3>
-            <p>A groundbreaking solution to streamline tech operations.</p>
-        </div>
-        <div class="project">
-            <h3>Project Two</h3>
-            <p>An innovative app that enhances productivity.</p>
-        </div>
-    </section>
-    
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>📧 Email: <a href="diveshdvd28@gmail.com">diveshdvd28@gmail.com</a></p>
-        <p>🌐 GitHub: <a href="https://github.com/diveshdvd" target="_blank">https://github.com/diveshdvd</a></p>
-    </section>
-    
+
+    <!-- Main Content -->
+    <main>
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Hello! I'm Divesh Shetty, a passionate IT professional with experience in software development and system administration. I enjoy solving complex problems and am committed to enhancing organizational operations through my technical expertise.</p>
+                    <p>Currently working at the American School of Bombay, I develop and maintain web applications while managing IT infrastructure. I'm always eager to learn new technologies and apply them to create innovative solutions.</p>
+                    <p>When I'm not coding or troubleshooting systems, I enjoy conducting tech workshops and participating in community events. I believe in continuous learning and staying updated with the latest trends in technology.</p>
+                    <p><strong>Date of Birth:</strong> August 28, 1999</p>
+                </div>
+                <div class="skills">
+                    <h3>Technical Skills</h3>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">Java, JSP</div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">Python, C#</div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">HTML, CSS, JavaScript</div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">AngularJS, Spring Boot</div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">MySQL, Firebase, PostgreSQL</div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">System Administration</div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <h2>My Experience</h2>
+            <div class="timeline">
+                <!-- Experience 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>IT Support and System Solution Developer</h3>
+                        <p class="date">American School of Bombay | Dec 2023 - Present</p>
+                        <ul>
+                            <li>Develop and maintain the ASB India Connect app and website using JSP, Java, Python and SQL.</li>
+                            <li>Manage and troubleshoot IT infrastructure including Google Admin, O365, Cisco Meraki, Adobe Admin, Printix, Veracross, and Schoology Admin.</li>
+                            <li>Provide technical support, optimize system performance, and enhance user experience.</li>
+                            <li>Lead efforts to automate repetitive IT tasks, reducing manual workload and improving efficiency.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Experience 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Software Developer Intern</h3>
+                        <p class="date">Contexio | Jan 2023 - Sept 2023</p>
+                        <ul>
+                            <li>Developed and maintained web applications using AngularJS, Java, Spring Boot, and C#.</li>
+                            <li>Assisted in debugging and testing software to ensure optimal functionality.</li>
+                            <li>Worked closely with the team to improve application performance.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Education 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Master of Computer Applications (M.C.A.)</h3>
+                        <p class="date">SIES College of Management Studies | Sep 2021 - May 2023</p>
+                        <p>CGPA: 7.88 / 10.00</p>
+                    </div>
+                </div>
+                
+                <!-- Education 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Bachelor of Science - Computer Science (B.Sc.)</h3>
+                        <p class="date">VPM RZ Shah College | Sep 2017 - May 2021</p>
+                        <p>CGPA: 6.69 / 10.00</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <img src="/api/placeholder/600/400" alt="Blood Donation Website" class="project-image">
+                    <div class="project-info">
+                        <h3>Blood Donation Website</h3>
+                        <p>Developed a website for blood banks to manage donor records and improve accessibility. Implemented real-time search functionality for users to find nearby blood banks.</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">PHP</span>
+                            <span class="tag">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <img src="/api/placeholder/600/400" alt="COVID-19 Live Tracker App" class="project-image">
+                    <div class="project-info">
+                        <h3>COVID-19 Live Tracker App</h3>
+                        <p>Built an Android app to display real-time COVID-19 statistics using API integration. Designed a user-friendly UI for seamless navigation.</p>
+                        <div class="project-tags">
+                            <span class="tag">Android</span>
+                            <span class="tag">JSON</span>
+                            <span class="tag">XAMPP</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <img src="/api/placeholder/600/400" alt="ASB India Connect" class="project-image">
+                    <div class="project-info">
+                        <h3>ASB India Connect</h3>
+                        <p>Currently developing and maintaining the ASB India Connect app and website, providing essential services and information to the school community.</p>
+                        <div class="project-tags">
+                            <span class="tag">JSP</span>
+                            <span class="tag">Java</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">SQL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <h2>Education</h2>
+            <div class="projects-grid">
+                <!-- Education 1 -->
+                <div class="project-card">
+                    <img src="/api/placeholder/600/400" alt="SIES College" class="project-image">
+                    <div class="project-info">
+                        <h3>Master of Computer Applications (M.C.A.)</h3>
+                        <p>SIES College of Management Studies</p>
+                        <p>September 2021 - May 2023</p>
+                        <p>CGPA: 7.88 / 10.00</p>
+                    </div>
+                </div>
+                
+                <!-- Education 2 -->
+                <div class="project-card">
+                    <img src="/api/placeholder/600/400" alt="VPM RZ Shah College" class="project-image">
+                    <div class="project-info">
+                        <h3>Bachelor of Science - Computer Science (B.Sc.)</h3>
+                        <p>VPM RZ Shah College</p>
+                        <p>September 2017 - May 2021</p>
+                        <p>CGPA: 6.69 / 10.00</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificates Section -->
+        <section id="certificates">
+            <h2>Certificates & Achievements</h2>
+            <div class="certificates-container">
+                <div class="certificate-card">
+                    <i>🏆</i>
+                    <h3>Google IT Support Professional Certificate</h3>
+                </div>
+                
+                <div class="certificate-card">
+                    <i>🏆</i>
+                    <h3>Microsoft Azure Fundamentals (AZ-900)</h3>
+                </div>
+                
+                <div class="certificate-card">
+                    <i>🏆</i>
+                    <h3>Cisco CCNA</h3>
+                </div>
+                
+                <div class="certificate-card">
+                    <i>🏆</i>
+                    <h3>C++ and C Programming course from Aptech Learning</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>Feel free to reach out to me for any inquiries, collaboration opportunities, or just to say hello!</p>
+                    
+                    <div class="contact-item">
+                        <i>📧</i>
+                        <span>diveshdvd28@gmail.com</span>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i>📱</i>
+                        <span>8356957415</span>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i>📍</i>
+                        <span>Mumbai, India</span>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://github.com/Diveshdvd" aria-label="GitHub" target="_blank">G</a>
+                        <a href="https://linkedin.com/in/divesh-shetty-049949214/" aria-label="LinkedIn" target="_blank">L</a>
+                        <a href="mailto:diveshdvd28@gmail.com" aria-label="Email">E</a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Divesh. Crafted with ❤️ for the web.</p>
+        <p>&copy; 2025 Divesh Shetty. All Rights Reserved.</p>
     </footer>
 </body>
 </html>
